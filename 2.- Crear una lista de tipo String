@@ -1,0 +1,41 @@
+package com.mycompany.listatipostring;
+
+/**
+ *
+ * @author Armando_GNR
+ * 2.- Crear una lista de tipo String
+     La lista debe de contener estos elementos (juan, pedro, jose, maria, sofia)
+     Itera la lista y actualizar el primer índice pasando el primer carácter a mayúscula
+     Imprimir la lista con un for-each
+ */
+public class ListaTipoString {
+
+    public static void main(String[] args) {
+
+        String lista[] = {"juan", "pedro", "jose", "sofia"};
+        String palabra;
+
+        for (int i = 0; i < lista.length; i++) {
+
+            palabra = lista[i];
+            lista[i] = convertirpalabra(palabra);
+        }
+        
+        for (String x : lista) {
+            System.out.print(x + "  ,   ");
+        }
+    }
+
+    public static String convertirpalabra(String palabra) {
+
+        String provicional[] = palabra.split("");
+        String letra;
+
+        letra = String.valueOf(palabra.charAt(0));//obtener primer letra
+        letra = letra.toUpperCase();//convertir
+
+        provicional[0] = letra;
+
+        return String.join("", provicional);
+    }
+}
